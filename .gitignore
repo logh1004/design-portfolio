@@ -1,0 +1,11 @@
+videos/
+*.mp4
+*.mov
+.DS_Store
+.vscode/
+assets/videos/
+videos/
+*.mp4
+*.mov
+.DS_Store
+.vscode/

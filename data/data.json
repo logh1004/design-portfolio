@@ -1,0 +1,68 @@
+[
+  {
+    "id": "central-mv",
+    "title": "Central (Official Music Video)",
+    "category": "music-video",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "3:40",
+    "thumbnail": "images/projects/central.jpg",
+    "url": "https://youtu.be/m_kAMiZQ81o?si=aCPh8q0sMESwHQwf",
+    "tags": ["hip-hop", "drill", "mv", "logh"]
+  },
+  {
+    "id": "central-mv",
+    "title": "Central (Official Music Video)",
+    "category": "music-video",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "3:40",
+    "thumbnail": "images/projects/central.jpg",
+    "url": "https://youtu.be/m_kAMiZQ81o?si=aCPh8q0sMESwHQwf",
+    "tags": ["hip-hop", "drill", "mv", "logh"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "LG 광고 공모전 – ‘Life’s Good’",
+    "category": "advertising",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "0:60",
+    "thumbnail": "images/projects/lg-ad.jpg",
+    "url": "https://drive.google.com/...",
+    "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "junggu-shorts",
+    "title": "대구 중구 60초 – 도시 스토리텔링",
+    "category": "advertising",
+    "format": "vertical",
+    "year": 2024,
+    "duration": "0:60",
+    "thumbnail": "images/projects/junggu.jpg",
+    "url": "https://youtu.be/...",
+    "tags": ["shorts", "vertical", "city"]
+  },
+  {
+    "id": "product-gif-aston",
+    "title": "Aston Origin – 제품 GIF / Motion",
+    "category": "motion",
+    "format": "square",
+    "year": 2025,
+    "duration": "0:08",
+    "thumbnail": "images/projects/aston.gif",
+    "url": "#",
+    "tags": ["motion", "product", "loop"]
+  },
+  {
+    "id": "portfolio-web",
+    "title": "Portfolio (React/Next) – Web",
+    "category": "web",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "-",
+    "thumbnail": "images/projects/web.jpg",
+    "url": "#",
+    "tags": ["web", "react", "nextjs"]
+  }
+]

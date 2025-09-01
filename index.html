@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>이선홍 | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Skip link (접근성) -->
+    <a class="skip-link" href="#home">본문으로 건너뛰기</a>
+
+    <!-- ===== Header / GNB ===== -->
+    <header class="site-header" role="banner">
+      <div class="container header-grid">
+        <!-- Left: 브랜드 -->
+        <div class="brand">
+          <a href="#home" aria-label="홈으로 이동">이선홍</a>
+        </div>
+
+        <!-- Center: 내비게이션 -->
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="#home">Home</a>
+          <a href="#about">About Me</a>
+          <a href="#skills">Skills</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#projects">Projects</a>
+        </nav>
+
+        <!-- Right: 액션(테마 토글) -->
+        <div class="header-actions">
+          <button
+            id="themeToggle"
+            class="icon-btn"
+            aria-pressed="false"
+            aria-label="테마 전환"
+          >
+            <span class="icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== 1) HOME (인트로: 배경 영상 + 오버레이 + 자기소개) ===== -->
+    <section id="home" class="intro intro--video" aria-label="인트로">
+      <video
+        id="introVideo"
+        class="intro__video"
+        autoplay
+        muted
+        playsinline
+        loop
+        preload="auto"
+        poster="images/hero-poster.jpg"
+      >
+        <source src="./videos/intro-musicvideo.mp4" type="video/mp4" />
+        브라우저가 video 태그를 지원하지 않습니다.
+      </video>
+
+      <div class="intro__scrim"></div>
+
+      <div class="intro__inner container">
+        <div class="intro__badge">Portfolio</div>
+        <h1 class="intro__title">이선홍 <span class="thin">Logh</span></h1>
+        <p class="intro__subtitle">
+          Music Video · Commercial · Motion Graphics · Web
+        </p>
+        <div class="intro__actions">
+          <a class="btn" href="Resume.pdf" target="_blank" rel="noopener"
+            >Download CV</a
+          >
+          <button id="toggleMute" class="btn btn--ghost" aria-pressed="true">
+            Unmute
+          </button>
+          <button id="goProjects" class="btn btn--ghost">
+            프로젝트 보러가기 ↓
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2) ABOUT ME ===== -->
+    <section id="about" class="about container" aria-label="About Me">
+      <h2>About Me</h2>
+      <p>
+        시각영상디자인 전공. 힙합 아티스트 ‘로흐(Logh)’. 음악과
+        영상·모션·브랜딩을 결합한 프로젝트를 만듭니다. 클라이언트 목적과 감정의
+        밸런스를 맞추는 것에 집중합니다.
+      </p>
+    </section>
+
+    <!-- ===== 3) SKILLS ===== -->
+    <section id="skills" class="skills container" aria-label="Skills">
+      <h2>Skills</h2>
+      <div class="skills__grid">
+        <div class="skill-card">
+          <h3>Video / Edit</h3>
+          <p>Premiere Pro, DaVinci Resolve, After Effects</p>
+        </div>
+        <div class="skill-card">
+          <h3>Motion Graphics</h3>
+          <p>After Effects, Illustrator, Cinema 4D(기초)</p>
+        </div>
+        <div class="skill-card">
+          <h3>Web / Interactive</h3>
+          <p>HTML, CSS, JavaScript, React(기초), GSAP</p>
+        </div>
+        <div class="skill-card">
+          <h3>Sound / Music</h3>
+          <p>Logic Pro, Vocal/Beat Production, Mixing(기초)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4) HIGHLIGHTS (Education · Experience · Achievements) ===== -->
+    <section
+      id="highlights"
+      class="highlights container"
+      aria-label="Highlights"
+    >
+      <h2>Highlights</h2>
+      <div class="timeline">
+        <div class="tl-group">
+          <h3>Education</h3>
+          <ul class="tl-list">
+            <li>
+              <time datetime="2023">2023</time>
+              <div class="tl-item">시각영상디자인 전공 졸업 (OO대학교)</div>
+            </li>
+          </ul>
+        </div>
+        <div class="tl-group">
+          <h3>Experience</h3>
+          <ul class="tl-list">
+            <li>
+              <time datetime="2024">2024</time>
+              <div class="tl-item">
+                Freelance Motion Designer / Video Editor (Commercial, MV)
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="tl-group">
+          <h3>Achievements</h3>
+          <ul class="tl-list">
+            <li>
+              <time datetime="2025">2025</time>
+              <div class="tl-item">LG Contest – Finalist (Motion Graphics)</div>
+            </li>
+            <li>
+              <time datetime="2025">2025</time>
+              <div class="tl-item">KOAT Contest – Shortlisted</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5) PROJECTS (검색/필터/그리드) ===== -->
+    <section id="projects" class="projects container" aria-label="Projects">
+      <h2>Projects</h2>
+
+      <!-- Controls -->
+      <div class="controls">
+        <div class="search">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="프로젝트 검색 (제목, 태그)"
+            aria-label="프로젝트 검색"
+          />
+        </div>
+
+        <div class="filters">
+          <div class="filter-group" role="tablist" aria-label="카테고리">
+            <button
+              class="chip active"
+              data-category="all"
+              role="tab"
+              aria-selected="true"
+            >
+              All
+            </button>
+            <button class="chip" data-category="music-video" role="tab">
+              Music Video
+            </button>
+            <button class="chip" data-category="advertising" role="tab">
+              Ad / Commercial
+            </button>
+            <button class="chip" data-category="motion" role="tab">
+              Motion Graphics
+            </button>
+            <button class="chip" data-category="web" role="tab">
+              Web / Interactive
+            </button>
+          </div>
+
+          <div class="filter-group" aria-label="보조 필터">
+            <label class="select-label">
+              <span>Format</span>
+              <select id="formatSelect">
+                <option value="all">All</option>
+                <option value="vertical">Vertical (9:16)</option>
+                <option value="horizontal">Horizontal (16:9)</option>
+                <option value="square">Square (1:1)</option>
+              </select>
+            </label>
+
+            <label class="select-label">
+              <span>Year</span>
+              <select id="yearSelect">
+                <option value="all">All</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div id="grid" class="grid" aria-live="polite" aria-busy="false"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        조건에 맞는 프로젝트가 없습니다.
+      </div>
+    </section>
+
+    <!-- ===== Footer / Contact 링크 ===== -->
+    <footer class="footer">
+      <div class="container">
+        <p>© <span id="yearNow"></span> 이선홍 (Logh)</p>
+        <ul class="links">
+          <li><a href="mailto:you@example.com">Email</a></li>
+          <li>
+            <a href="https://instagram.com/" target="_blank" rel="noopener"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a href="https://youtube.com/" target="_blank" rel="noopener"
+              >YouTube</a
+            >
+          </li>
+          <li>
+            <a href="https://notion.so/" target="_blank" rel="noopener"
+              >Notion</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/" target="_blank" rel="noopener"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
