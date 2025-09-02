@@ -1,4 +1,4 @@
-/* ===== 기본 토큰 (다크 기본) ===== */
+/* ===== 디자인 토큰 (다크 기본) ===== */
 :root {
   --bg: #0b1620;
   --bg-2: #0e1b26;
@@ -16,7 +16,7 @@
   --shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
 }
 
-/* ===== 라이트 테마 (토글 시 data-theme="light") ===== */
+/* ===== 라이트 테마 ===== */
 html[data-theme="light"] {
   --bg: #f6f9ff;
   --bg-2: #ffffff;
@@ -32,6 +32,7 @@ html[data-theme="light"] {
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* ===== 기본 레이아웃 ===== */
 * {
   box-sizing: border-box;
 }
@@ -55,7 +56,6 @@ html[data-theme="light"] body {
   transition: background 200ms ease, color 200ms ease;
 }
 
-/* 공통 레이아웃 */
 .container {
   max-width: 1120px;
   margin-inline: auto;
@@ -73,7 +73,7 @@ p {
   color: var(--text-2);
 }
 
-/* ===== 헤더 ===== */
+/* ===== Header ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -88,7 +88,7 @@ html[data-theme="light"] .site-header {
 
 .header-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* left / center / right */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: 64px;
   gap: 16px;
@@ -121,7 +121,6 @@ html[data-theme="light"] .nav a.is-active {
   background: rgba(11, 22, 32, 0.06);
 }
 
-/* 우측 액션 */
 .header-actions {
   justify-self: end;
   display: flex;
@@ -151,10 +150,13 @@ html[data-theme="light"] .icon-btn:hover {
   line-height: 1;
 }
 
-/* ===== HOME (인트로) ===== */
+/* ===== Intro (Hero) ===== */
 .intro {
   position: relative;
   padding: 0;
+}
+.intro--video {
+  min-height: 100vh;
 }
 .intro__video {
   position: absolute;
@@ -163,89 +165,134 @@ html[data-theme="light"] .icon-btn:hover {
   height: 100%;
   object-fit: cover;
 }
-.intro--video {
-  min-height: clamp(520px, 72vh, 820px);
-}
 .intro__scrim {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-      120% 80% at 40% 20%,
+      120% 80% at 50% 20%,
       rgba(10, 18, 28, 0.2) 0%,
-      rgba(10, 18, 28, 0.45) 55%,
-      rgba(10, 18, 28, 0.65) 100%
+      rgba(10, 18, 28, 0.55) 60%,
+      rgba(10, 18, 28, 0.75) 100%
     ),
     linear-gradient(180deg, var(--scrim-1) 0%, var(--scrim-2) 100%);
+  animation: scrimFade 0.6s ease both;
 }
-html[data-theme="light"] .intro__scrim {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.65) 100%
-  );
+@keyframes scrimFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
 .intro__inner {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 18px;
-  min-height: clamp(520px, 72vh, 820px);
-}
-.intro__badge {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-2);
-  border: 1px solid var(--border);
-}
-.intro__title {
-  font-size: clamp(34px, 6.5vw, 64px);
-  line-height: 1.05;
-  letter-spacing: 0.2px;
-}
-.intro__title .thin {
-  font-weight: 300;
-  color: var(--text-2);
-}
-.intro__subtitle {
-  color: var(--text-2);
-}
-.intro__actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 44px;
-  padding: 0 16px;
-  border-radius: 12px;
-  background: var(--primary);
-  color: white;
-  text-decoration: none;
-  border: 0;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-}
-.btn--ghost {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-  box-shadow: none;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 72px 0;
 }
 
-/* ===== ABOUT ===== */
+/* 패널 */
+.intro__panel {
+  max-width: 960px;
+  width: min(92vw, 960px);
+  padding: clamp(18px, 3.6vw, 28px);
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  animation: dropIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
+}
+html[data-theme="light"] .intro__panel {
+  background: rgba(11, 22, 32, 0.06);
+}
+@keyframes dropIn {
+  from {
+    transform: translateY(-24px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 스택 (패널 + 버튼 묶음) */
+.intro__stack {
+  display: grid;
+  justify-items: center;
+  row-gap: 18px;
+  transform-origin: center center;
+  animation: dropIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
+}
+
+/* 스택 퇴장 */
+.stack--exit {
+  transform: translateY(-8vh) scale(0.98);
+  opacity: 0;
+  transition: transform 0.42s ease, opacity 0.42s ease;
+}
+
+/* Scroll Down 버튼 */
+.scroll-down {
+  place-self: center;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+  transition: opacity 0.25s ease;
+  contain: layout paint;
+}
+.scroll-down:hover {
+  transform: none !important;
+}
+.scroll-down .label {
+  display: inline-block;
+  font-weight: 700;
+}
+.scroll-down .chev {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  display: block;
+  animation: chev-bounce 1.6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes chev-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* ===== About ===== */
 .about p {
   max-width: 780px;
 }
 
-/* ===== SKILLS ===== */
+/* ===== Skills ===== */
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -264,7 +311,7 @@ html[data-theme="light"] .intro__scrim {
   }
 }
 
-/* ===== PROJECTS ===== */
+/* ===== Projects ===== */
 .controls {
   display: flex;
   gap: 16px;
@@ -344,7 +391,7 @@ html[data-theme="light"] .intro__scrim {
   color: var(--text-2);
 }
 
-/* ===== PROJECT CARD ===== */
+/* Project Card */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -368,7 +415,6 @@ html[data-theme="light"] .card__thumb {
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: translateZ(0);
 }
 .card__body {
   padding: 14px 14px 16px;
@@ -403,7 +449,6 @@ html[data-theme="light"] .card__thumb {
 }
 .card__link {
   align-self: flex-start;
-  display: inline-block;
   margin-top: auto;
   color: var(--text);
   text-decoration: none;
@@ -416,7 +461,7 @@ html[data-theme="light"] .card__thumb {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ===== HIGHLIGHTS (타임라인) ===== */
+/* ===== Highlights ===== */
 .timeline {
   display: grid;
   gap: 24px;
@@ -475,7 +520,7 @@ html[data-theme="light"] .footer {
   color: var(--text);
 }
 
-/* 접근성 */
+/* ===== 접근성 ===== */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -493,7 +538,7 @@ html[data-theme="light"] .footer {
   color: #fff;
 }
 
-/* 모션 최소화 환경 배려 */
+/* ===== 모션 최소화 ===== */
 @media (prefers-reduced-motion: reduce) {
   .intro__video {
     animation: none;
@@ -502,336 +547,12 @@ html[data-theme="light"] .footer {
   * {
     scroll-behavior: auto;
   }
+  .scroll-down .chev {
+    animation: none !important;
+  }
 }
 
-/* 소셜 아이콘 라인 */
-.intro__social {
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 6px 0 4px;
-}
-.intro__social a {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-  text-decoration: none;
-  font-size: 18px;
-  transition: transform 120ms ease, background 120ms ease;
-}
-.intro__social a:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.08);
-}
-html[data-theme="light"] .intro__social a {
-  background: rgba(11, 22, 32, 0.04);
-}
-html[data-theme="light"] .intro__social a:hover {
-  background: rgba(11, 22, 32, 0.08);
-}
-
-/* 스크롤 다운 버튼을 약간 강조 */
-#scrollDown {
-  position: relative;
-}
-#scrollDown::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-}
-
-/* 섹션 앵커 보정: 헤더에 가려지지 않게 */
+/* ===== 앵커 보정 ===== */
 section[id] {
   scroll-margin-top: 84px;
 }
-
-/* ===== Hero full-bleed + center ===== */
-.intro--video {
-  min-height: 100vh;
-}
-.intro__inner {
-  position: relative;
-  z-index: 2;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding-top: 72px; /* 헤더 여유 */
-  padding-bottom: 96px; /* scroll-down 공간 */
-}
-
-/* 배경 비디오 & 스크림 */
-.intro__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.intro__scrim {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-      120% 80% at 50% 20%,
-      rgba(10, 18, 28, 0.2) 0%,
-      rgba(10, 18, 28, 0.55) 60%,
-      rgba(10, 18, 28, 0.75) 100%
-    ),
-    linear-gradient(180deg, var(--scrim-1) 0%, var(--scrim-2) 100%);
-  animation: scrimFade 0.6s ease both;
-}
-@keyframes scrimFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* 반투명 패널(드롭 인) */
-.intro__panel {
-  max-width: 960px;
-  width: min(92vw, 960px);
-  padding: clamp(18px, 3.6vw, 28px);
-  border-radius: 22px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow);
-  display: grid;
-  justify-items: center;
-  gap: 14px;
-  animation: dropIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
-}
-html[data-theme="light"] .intro__panel {
-  background: rgba(11, 22, 32, 0.06);
-}
-@keyframes dropIn {
-  from {
-    transform: translateY(-24px) scale(0.98);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-/* 타이포 조정 */
-.intro__badge {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
-  color: var(--text-2);
-}
-.intro__title {
-  font-size: clamp(38px, 7vw, 68px);
-  line-height: 1.05;
-}
-.intro__title .thin {
-  font-weight: 300;
-  color: var(--text-2);
-}
-.intro__subtitle {
-  color: var(--text-2);
-}
-
-/* 소셜 */
-.intro__social {
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 6px 0 0;
-}
-.intro__social a {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-  text-decoration: none;
-  font-size: 18px;
-  transition: transform 120ms ease, background 120ms ease;
-}
-.intro__social a:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.08);
-}
-html[data-theme="light"] .intro__social a {
-  background: rgba(11, 22, 32, 0.04);
-}
-html[data-theme="light"] .intro__social a:hover {
-  background: rgba(11, 22, 32, 0.08);
-}
-
-/* Scroll down 버튼 (중앙 하단 고정) */
-.scroll-down {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  cursor: pointer;
-  font: inherit;
-  transition: transform 0.12s ease, background 0.12s ease, opacity 0.12s ease;
-}
-.scroll-down i {
-  display: inline-block;
-  animation: bounce 1.4s ease-in-out infinite;
-}
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-.scroll-down:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(-50%) translateY(-1px);
-}
-
-/* 클릭 시 히어로 퇴장 트랜지션 */
-.intro--exit .intro__panel {
-  transform: translateY(-8vh) scale(0.98);
-  opacity: 0;
-  transition: 0.42s ease;
-}
-.intro--exit .scroll-down {
-  opacity: 0;
-  transform: translateX(-50%) translateY(8px);
-}
-.intro--exit .intro__scrim {
-  opacity: 0.9;
-  transition: opacity 0.42s ease;
-}
-
-/* 앵커 보정 */
-section[id] {
-  scroll-margin-top: 84px;
-}
-
-.scroll-down {
-  position: static; /* absolute 대신 부모 그리드 정렬 사용 */
-  inset: auto; /* left/right/top/bottom 초기화 */
-  transform: none; /* translateX 초기화 */
-
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  color: var(--text);
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.scroll-down .chev {
-  animation: chev-bounce 1.6s ease-in-out infinite;
-}
-@keyframes chev-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-
-/* 패널만 퇴장 */
-.panel--exit {
-  transform: translateY(-8vh) scale(0.98);
-  opacity: 0;
-  transition: 0.42s ease;
-}
-/* 히어로 내부를 100vh 중앙 정렬 */
-.intro__inner {
-  position: relative;
-  z-index: 2;
-  min-height: 100vh;
-  display: grid;
-  place-items: center; /* 가로세로 완전 중앙 */
-  text-align: center;
-  padding-top: 72px; /* 헤더 여백 */
-  padding-bottom: 72px;
-}
-
-/* 패널+버튼을 한 스택으로 묶어 같이 움직임 */
-.intro__stack {
-  display: grid;
-  justify-items: center; /* 수평 중앙 */
-  row-gap: 18px; /* 패널과 버튼 간 간격 */
-  transform-origin: center center;
-  animation: dropIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; /* 함께 드롭 인 */
-}
-
-/* 기존의 .intro__panel dropIn이 있다면 제거해도 됨(중복 방지) */
-
-/* 스택만 퇴장 (X축은 고정) */
-.stack--exit {
-  transform: translateX(0) translateY(-8vh) scale(0.98); /* X축 고정 */
-  opacity: 0;
-  transition: transform 0.42s ease, opacity 0.42s ease;
-}
-
-/* 텍스트-only scroll down 버튼: 중앙 배치(부모에서 이미 중앙) */
-.scroll-down {
-  position: static; /* absolute 제거! 부모 그리드로 중앙 */
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0; /* 테두리/배경 없음 */
-  background: transparent;
-  border: 0;
-  color: var(--text);
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.scroll-down:focus {
-  outline: none;
-}
-.scroll-down .chev {
-  animation: chev-bounce 1.6s ease-in-out infinite;
-}
-@keyframes chev-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-
-/* 기존에 있었다면 지우기: 버튼을 숨기는 규칙 */
-/* .intro--exit .scroll-down { ... }  << 제거 */
-/* .panel--exit { ... }               << 안 씀 */

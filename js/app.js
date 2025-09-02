@@ -1,11 +1,11 @@
 // ===== 인트로 영상 제어 =====
 const introVideo = document.getElementById("introVideo");
 const toggleMute = document.getElementById("toggleMute");
-const scrollDown = document.getElementById("scrollDown"); // 새 버튼
-const aboutSec = document.getElementById("about"); // 스크롤 타깃
-const projectsSec = document.getElementById("projects"); // 백업 타깃
-// (goProjects는 더 이상 안 쓰면 삭제해도 됨)
+const scrollDown = document.getElementById("scrollDown");
+const aboutSec = document.getElementById("about");
+const projectsSec = document.getElementById("projects");
 
+// 초기화
 (async function initIntro() {
   if (!introVideo) return;
 
@@ -15,7 +15,7 @@ const projectsSec = document.getElementById("projects"); // 백업 타깃
     await introVideo.play();
   } catch (e) {}
 
-  // 탭 가리면 일시정지
+  // 탭을 가리면 일시정지, 돌아오면 재생
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) introVideo.pause();
     else introVideo.play().catch(() => {});
@@ -50,7 +50,7 @@ const projectsSec = document.getElementById("projects"); // 백업 타깃
   });
 })();
 
-// ===== 헤더 내비 현재 섹션 활성화 (옵션) =====
+// ===== 헤더 내비 현재 섹션 활성화 =====
 const navLinks = document.querySelectorAll(".nav a");
 const sections = [...document.querySelectorAll("section[id]")];
 const setActive = () => {
@@ -66,7 +66,7 @@ const setActive = () => {
 setActive();
 window.addEventListener("scroll", setActive);
 
-// ===== 프로젝트 필터링/검색 로직 =====
+// ===== Projects 데이터/필터 =====
 const state = { query: "", category: "all", format: "all", year: "all" };
 
 const gridEl = document.getElementById("grid");
@@ -77,7 +77,7 @@ const formatSelect = document.getElementById("formatSelect");
 const yearSelect = document.getElementById("yearSelect");
 document.getElementById("yearNow").textContent = new Date().getFullYear();
 
-let PROJECTS = []; // data.json을 fetch해서 채워야 함
+let PROJECTS = []; // data.json을 fetch해서 채움
 
 const normalize = (s = "") => s.toString().toLowerCase().trim();
 const by = (k) => (a, b) => a[k] > b[k] ? -1 : a[k] < b[k] ? 1 : 0;
@@ -91,9 +91,11 @@ const by = (k) => (a, b) => a[k] > b[k] ? -1 : a[k] < b[k] ? 1 : 0;
     applyFilters();
   } catch (e) {
     console.error("data.json 로드 실패:", e);
-    if (gridEl) {
-      gridEl.innerHTML =
-        "<p style='color:#f66'>데이터를 불러오지 못했습니다.</p>";
+    if (gridEl && emptyEl) {
+      gridEl.innerHTML = "";
+      emptyEl.hidden = false;
+      emptyEl.textContent =
+        "데이터를 불러오지 못했습니다. 새로고침하거나 잠시 후 다시 시도해주세요.";
     }
   }
 })();
@@ -132,7 +134,9 @@ function renderGrid(list) {
     el.className = "card";
     el.innerHTML = `
       <div class="card__thumb">
-        <img src="${p.thumbnail}" alt="${p.title} 썸네일"/>
+        <img src="${p.thumbnail}" alt="${
+      p.title
+    } 썸네일" loading="lazy" decoding="async"/>
       </div>
       <div class="card__body">
         <h3 class="card__title">${p.title}</h3>
@@ -154,7 +158,7 @@ function renderGrid(list) {
             : ""
         }
         ${
-          p.url
+          p.url && p.url !== "#"
             ? `<a class="card__link" href="${p.url}" target="_blank" rel="noopener">View Project →</a>`
             : ""
         }
@@ -205,7 +209,7 @@ function applyFilters() {
   renderGrid(list);
 }
 
-// 이벤트
+// 이벤트 바인딩
 searchInput?.addEventListener("input", (e) => {
   state.query = e.target.value;
   applyFilters();
@@ -252,14 +256,16 @@ function setTheme(mode) {
   if (themeToggle) {
     const isLight = mode === "light";
     themeToggle.setAttribute("aria-pressed", String(isLight));
-    themeToggle.querySelector(".icon").textContent = isLight ? "☀️" : "🌙";
     themeToggle.setAttribute(
       "aria-label",
       isLight ? "다크 테마로 전환" : "라이트 테마로 전환"
     );
+    themeToggle.title = isLight ? "다크 테마로 전환" : "라이트 테마로 전환";
+    themeToggle.querySelector(".icon").textContent = isLight ? "☀️" : "🌙";
   }
 }
-// "Scroll down": 패널+버튼 스택을 살짝 사라지게 하고 스크롤
+
+// ===== Scroll down: 스택 퇴장 + 스크롤 이동 =====
 scrollDown?.addEventListener("click", () => {
   document.querySelector(".intro__stack")?.classList.add("stack--exit");
   (aboutSec || projectsSec)?.scrollIntoView({
