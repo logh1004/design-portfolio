@@ -41,7 +41,6 @@
       </div>
     </header>
 
-    <!-- ===== 1) HOME (인트로: 배경 영상 + 오버레이 + 자기소개) ===== -->
     <section id="home" class="intro intro--video" aria-label="인트로">
       <video
         id="introVideo"
@@ -51,49 +50,78 @@
         playsinline
         loop
         preload="auto"
-        poster="images/hero-poster.jpg"
+        poster="assets/images/hero-poster.jpg"
       >
-        <source src="./videos/intro-musicvideo.mp4" type="video/mp4" />
+        <source src="assets/videos/intro-musicvideo.mp4" type="video/mp4" />
         브라우저가 video 태그를 지원하지 않습니다.
       </video>
 
       <div class="intro__scrim"></div>
 
       <div class="intro__inner container">
-        <div class="intro__badge">Portfolio</div>
+        <!-- 패널 + 스크롤 버튼을 한 부모로 묶음 -->
+        <div class="intro__stack">
+          <div class="intro__panel" role="group" aria-label="히어로 정보">
+            <div class="intro__badge">Portfolio</div>
+            <h1 class="intro__title">이선홍 <span class="thin"></span></h1>
+            <p class="intro__subtitle">
+              Music Video · Commercial · Motion Graphics · Web
+            </p>
 
-        <h1 class="intro__title">이선홍 <span class="thin">Logh</span></h1>
+            <ul class="intro__social" aria-label="소셜 링크">
+              <li><a href="#" aria-label="Instagram(준비중)">📷</a></li>
+              <li><a href="#" aria-label="X(준비중)">🐦</a></li>
+              <li><a href="#" aria-label="YouTube(준비중)">▶️</a></li>
+              <li><a href="#" aria-label="Notion(준비중)">🗂️</a></li>
+              <li><a href="#" aria-label="GitHub(준비중)">💻</a></li>
+            </ul>
 
-        <p class="intro__subtitle">
-          Music Video · Commercial · Motion Graphics · Web
-        </p>
+            <div class="intro__actions">
+              <a class="btn" href="Resume.pdf" target="_blank" rel="noopener"
+                >Download CV</a
+              >
+              <button
+                id="toggleMute"
+                class="btn btn--ghost"
+                aria-pressed="true"
+              >
+                Unmute
+              </button>
+            </div>
+          </div>
 
-        <!-- 소셜 아이콘 (임시 이모지) -->
-        <ul class="intro__social" aria-label="소셜 링크">
-          <li>
-            <a href="#" aria-label="Instagram(준비중)" title="Instagram">📷</a>
-          </li>
-          <li>
-            <a href="#" aria-label="X / Twitter(준비중)" title="X / Twitter"
-              >🐦</a
-            >
-          </li>
-          <li>
-            <a href="#" aria-label="YouTube(준비중)" title="YouTube">▶️</a>
-          </li>
-          <li><a href="#" aria-label="Notion(준비중)" title="Notion">🗂️</a></li>
-          <li><a href="#" aria-label="GitHub(준비중)" title="GitHub">💻</a></li>
-        </ul>
-
-        <div class="intro__actions">
-          <a class="btn" href="Resume.pdf" target="_blank" rel="noopener"
-            >Download CV</a
+          <!-- Scroll Down: 패널과 같은 부모 (같이 움직임) -->
+          <button
+            id="scrollDown"
+            class="scroll-down"
+            aria-label="아래 섹션으로 이동"
           >
-          <button id="toggleMute" class="btn btn--ghost" aria-pressed="true">
-            Unmute
+            <svg
+              class="chev"
+              width="22"
+              height="22"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 6l7 7 7-7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M3 10l7 7 7-7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="label">Scroll Down</span>
           </button>
-          <!-- 기존 '프로젝트 보러가기' → Scroll down -->
-          <button id="scrollDown" class="btn btn--ghost">Scroll down ↓</button>
         </div>
       </div>
     </section>
@@ -102,9 +130,9 @@
     <section id="about" class="about container" aria-label="About Me">
       <h2>About Me</h2>
       <p>
-        시각영상디자인 전공. 힙합 아티스트 ‘로흐(Logh)’. 음악과
-        영상·모션·브랜딩을 결합한 프로젝트를 만듭니다. 클라이언트 목적과 감정의
-        밸런스를 맞추는 것에 집중합니다.
+        시각영상디자인 전공. 힙합 아티스트 ‘로흐’. 음악과 영상·모션·브랜딩을
+        결합한 프로젝트를 만듭니다. 클라이언트 목적과 감정의 밸런스를 맞추는
+        것에 집중합니다.
       </p>
     </section>
 

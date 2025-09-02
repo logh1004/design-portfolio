@@ -2,8 +2,9 @@
 const introVideo = document.getElementById("introVideo");
 const toggleMute = document.getElementById("toggleMute");
 const scrollDown = document.getElementById("scrollDown"); // 새 버튼
-const aboutSec = document.getElementById("about"); // 타깃 섹션
-const projectsSec = document.getElementById("projects"); // 백업용
+const aboutSec = document.getElementById("about"); // 스크롤 타깃
+const projectsSec = document.getElementById("projects"); // 백업 타깃
+// (goProjects는 더 이상 안 쓰면 삭제해도 됨)
 
 (async function initIntro() {
   if (!introVideo) return;
@@ -46,11 +47,6 @@ const projectsSec = document.getElementById("projects"); // 백업용
     introVideo.muted = !introVideo.muted;
     if (!introVideo.paused) await introVideo.play().catch(() => {});
     sync();
-  });
-
-  // “프로젝트 보러가기” 버튼
-  goProjects?.addEventListener("click", () => {
-    projectsSec?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 })();
 
@@ -263,8 +259,9 @@ function setTheme(mode) {
     );
   }
 }
-// "Scroll down" → #about 로 이동 (없으면 #projects 대체)
+// "Scroll down": 패널+버튼 스택을 살짝 사라지게 하고 스크롤
 scrollDown?.addEventListener("click", () => {
+  document.querySelector(".intro__stack")?.classList.add("stack--exit");
   (aboutSec || projectsSec)?.scrollIntoView({
     behavior: "smooth",
     block: "start",
