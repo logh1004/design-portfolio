@@ -1,8 +1,9 @@
 // ===== 인트로 영상 제어 =====
 const introVideo = document.getElementById("introVideo");
 const toggleMute = document.getElementById("toggleMute");
-const goProjects = document.getElementById("goProjects");
-const projectsSec = document.getElementById("projects");
+const scrollDown = document.getElementById("scrollDown"); // 새 버튼
+const aboutSec = document.getElementById("about"); // 타깃 섹션
+const projectsSec = document.getElementById("projects"); // 백업용
 
 (async function initIntro() {
   if (!introVideo) return;
@@ -262,3 +263,10 @@ function setTheme(mode) {
     );
   }
 }
+// "Scroll down" → #about 로 이동 (없으면 #projects 대체)
+scrollDown?.addEventListener("click", () => {
+  (aboutSec || projectsSec)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});

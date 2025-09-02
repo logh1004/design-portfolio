@@ -503,3 +503,53 @@ html[data-theme="light"] .footer {
     scroll-behavior: auto;
   }
 }
+
+/* 소셜 아이콘 라인 */
+.intro__social {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 4px;
+}
+.intro__social a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  font-size: 18px;
+  transition: transform 120ms ease, background 120ms ease;
+}
+.intro__social a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+}
+html[data-theme="light"] .intro__social a {
+  background: rgba(11, 22, 32, 0.04);
+}
+html[data-theme="light"] .intro__social a:hover {
+  background: rgba(11, 22, 32, 0.08);
+}
+
+/* 스크롤 다운 버튼을 약간 강조 */
+#scrollDown {
+  position: relative;
+}
+#scrollDown::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+/* 섹션 앵커 보정: 헤더에 가려지지 않게 */
+section[id] {
+  scroll-margin-top: 84px;
+}

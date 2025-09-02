@@ -78,12 +78,12 @@
   },
   {
     "id": "lg-ad",
-    "title": "GenJi Live 2D",
+    "title": "Artist 로흐 - Youtube Channel",
     "category": "advertising",
     "format": "horizontal",
     "year": 2025,
-    "duration": "3:10",
-    "thumbnail": "assets/images/genji.png",
+    "duration": "--:--",
+    "thumbnail": "assets/images/logh.jpg",
     "url": "https://youtu.be/vFXBqB1wp2M",
     "tags": ["commercial", "brand", "contest"]
   },
