@@ -1,36 +1,124 @@
 [
   {
-    "id": "central-mv",
-    "title": "Central (Official Music Video)",
-    "category": "music-video",
+    "id": "lg-ad",
+    "title": "대국민 가스안전 공모전",
+    "category": "advertising",
     "format": "horizontal",
-    "year": 2025,
-    "duration": "3:40",
-    "thumbnail": "images/projects/central.jpg",
-    "url": "https://youtu.be/m_kAMiZQ81o?si=aCPh8q0sMESwHQwf",
-    "tags": ["hip-hop", "drill", "mv", "logh"]
+    "year": 2023,
+    "duration": "0:40",
+    "thumbnail": "assets/images/gas.png",
+    "url": "https://youtu.be/7Triv3f1APE",
+    "tags": ["commercial", "brand", "contest"]
   },
   {
     "id": "central-mv",
-    "title": "Central (Official Music Video)",
+    "title": "로흐 - Central (Official Music Video)",
     "category": "music-video",
     "format": "horizontal",
     "year": 2025,
     "duration": "3:40",
-    "thumbnail": "images/projects/central.jpg",
+    "thumbnail": "assets/images/central.jpg",
     "url": "https://youtu.be/m_kAMiZQ81o?si=aCPh8q0sMESwHQwf",
     "tags": ["hip-hop", "drill", "mv", "logh"]
   },
   {
     "id": "lg-ad",
-    "title": "LG 광고 공모전 – ‘Life’s Good’",
+    "title": "Life’s Gram (LG 광고)",
     "category": "advertising",
     "format": "horizontal",
     "year": 2025,
     "duration": "0:60",
-    "thumbnail": "images/projects/lg-ad.jpg",
-    "url": "https://drive.google.com/...",
+    "thumbnail": "assets/images/lg-ad.png",
+    "url": "https://youtu.be/mb8xeF7tC5Y",
     "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "웨딩 / 본식영상",
+    "category": "advertising",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "0:60",
+    "thumbnail": "assets/images/wedding.png",
+    "url": "https://youtu.be/c1VA1iRUjXw",
+    "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "Ditto Typography",
+    "category": "motion",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "0:35",
+    "thumbnail": "assets/images/typography.png",
+    "url": "https://youtu.be/vd5NMNuzPBI",
+    "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "KOAT 한국농업기술진흥원",
+    "category": "advertising",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "2:06",
+    "thumbnail": "assets/images/koat.png",
+    "url": "https://youtu.be/JtIFGCGqQGg",
+    "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "GenJi Live 2D",
+    "category": "advertising",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "3:10",
+    "thumbnail": "assets/images/genji.png",
+    "url": "https://youtu.be/vFXBqB1wp2M",
+    "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "GenJi Live 2D",
+    "category": "advertising",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "3:10",
+    "thumbnail": "assets/images/genji.png",
+    "url": "https://youtu.be/vFXBqB1wp2M",
+    "tags": ["commercial", "brand", "contest"]
+  },
+  {
+    "id": "junggu-shorts",
+    "title": "격의 미학 - Youtube Shorts Centents",
+    "category": "advertising",
+    "format": "vertical",
+    "year": 2025,
+    "duration": "--:--",
+    "thumbnail": "assets/images/logo.jpg",
+    "url": "https://www.youtube.com/@%EA%B2%A9%EC%9D%98%EB%AF%B8%ED%95%99",
+    "tags": ["shorts", "vertical", "city"]
+  },
+  {
+    "id": "product-gif-aston",
+    "title": "Aston Origin Ad",
+    "category": "advertising",
+    "format": "vertical",
+    "year": 2025,
+    "duration": "--:--",
+    "thumbnail": "assets/images/untitled.jpg",
+    "url": "#",
+    "tags": ["motion", "product", "loop"]
+  },
+  {
+    "id": "aston-detail",
+    "title": "Aston Origin · 제품 상세페이지 / GIF",
+    "category": "web",
+    "format": "horizontal",
+    "year": 2025,
+    "duration": "-",
+    "thumbnail": "assets/images/aston-pic.png",
+    "url": "assets/images/aston-page.png",
+    "tags": ["web", "detail-page", "ui"]
   },
   {
     "id": "junggu-shorts",
@@ -39,30 +127,8 @@
     "format": "vertical",
     "year": 2024,
     "duration": "0:60",
-    "thumbnail": "images/projects/junggu.jpg",
+    "thumbnail": "assets/images/untitled.jpg",
     "url": "https://youtu.be/...",
     "tags": ["shorts", "vertical", "city"]
-  },
-  {
-    "id": "product-gif-aston",
-    "title": "Aston Origin – 제품 GIF / Motion",
-    "category": "motion",
-    "format": "square",
-    "year": 2025,
-    "duration": "0:08",
-    "thumbnail": "images/projects/aston.gif",
-    "url": "#",
-    "tags": ["motion", "product", "loop"]
-  },
-  {
-    "id": "portfolio-web",
-    "title": "Portfolio (React/Next) – Web",
-    "category": "web",
-    "format": "horizontal",
-    "year": 2025,
-    "duration": "-",
-    "thumbnail": "images/projects/web.jpg",
-    "url": "#",
-    "tags": ["web", "react", "nextjs"]
   }
 ]
