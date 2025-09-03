@@ -455,7 +455,7 @@ html[data-theme="light"] .card__thumb {
 }
 .card__link {
   align-self: flex-start;
-  margin-top: auto;
+  display: inline-block;
   color: var(--text);
   text-decoration: none;
   padding: 8px 10px;
@@ -465,6 +465,16 @@ html[data-theme="light"] .card__thumb {
 }
 .card__link:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+/* 두 번째 버튼은 약간 다른 느낌으로(선택사항) */
+.card__link--alt {
+  background: rgba(255, 255, 255, 0.02);
+  border-style: dashed;
+}
+.card__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 /* ===== Highlights ===== */

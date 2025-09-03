@@ -137,33 +137,36 @@ function renderGrid(list) {
         <img src="${p.thumbnail}" alt="${
       p.title
     } 썸네일" loading="lazy" decoding="async"/>
-      </div>
-      <div class="card__body">
-        <h3 class="card__title">${p.title}</h3>
-        <div class="card__meta">
-          <span>${labelCategory(p.category)}</span>
-          <span>· ${labelFormat(p.format)}</span>
-          <span>· ${p.year}</span>
-          ${
-            p.duration && p.duration !== "-"
-              ? `<span>· ${p.duration}</span>`
-              : ""
-          }
-        </div>
-        ${
-          p.tags?.length
-            ? `<div class="card__tags">${p.tags
-                .map((t) => `<span class="tag">#${t}</span>`)
-                .join("")}</div>`
-            : ""
-        }
-        ${
-          p.url && p.url !== "#"
-            ? `<a class="card__link" href="${p.url}" target="_blank" rel="noopener">View Project →</a>`
-            : ""
-        }
-      </div>
-    `;
+  </div>
+  <div class="card__body">
+    <h3 class="card__title">${p.title}</h3>
+    <div class="card__meta">
+      <span>${labelCategory(p.category)}</span>
+      <span>· ${labelFormat(p.format)}</span>
+      <span>· ${p.year}</span>
+      ${p.duration && p.duration !== "-" ? `<span>· ${p.duration}</span>` : ""}
+    </div>
+    ${
+      p.tags?.length
+        ? `<div class="card__tags">${p.tags
+            .map((t) => `<span class="tag">#${t}</span>`)
+            .join("")}</div>`
+        : ""
+    }
+    <div class="card__actions">
+      ${
+        p.url
+          ? `<a class="card__link" href="${p.url}" target="_blank" rel="noopener">View Project →</a>`
+          : ""
+      }
+      ${
+        p.url2
+          ? `<a class="card__link card__link--alt" href="${p.url2}" target="_blank" rel="noopener">View Data →</a>`
+          : ""
+      }
+    </div>
+  </div>
+`;
     frag.appendChild(el);
   });
   gridEl.appendChild(frag);

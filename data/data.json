@@ -89,13 +89,13 @@
   },
   {
     "id": "junggu-shorts",
-    "title": "격의 미학 - Youtube Shorts Contents",
+    "title": "격의 미학 - Youtube Shorts Centents",
     "category": "advertising",
     "format": "vertical",
     "year": 2025,
     "duration": "--:--",
     "thumbnail": "assets/images/logo.jpg",
-    "url": "https://youtu.be/...",
+    "url": "https://www.youtube.com/@%EA%B2%A9%EC%9D%98%EB%AF%B8%ED%95%99",
     "url2": "assets/images/short.png",
     "tags": ["shorts", "vertical", "city"]
   },
@@ -106,8 +106,8 @@
     "format": "vertical",
     "year": 2025,
     "duration": "--:--",
-    "thumbnail": "assets/images/untitled.jpg",
-    "url": "#",
+    "thumbnail": "assets/images/aston-pic2.png",
+    "url": "assets/images/aston.mp4",
     "tags": ["motion", "product", "loop"]
   },
   {
