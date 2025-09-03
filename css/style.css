@@ -194,6 +194,7 @@ html[data-theme="light"] .icon-btn:hover {
   place-items: center;
   text-align: center;
   padding: 72px 0;
+  transform: translateY(-60px); /* 원하는 값만큼 위로 올림 */
 }
 
 /* 패널 */
@@ -243,6 +244,7 @@ html[data-theme="light"] .intro__panel {
 
 /* Scroll Down 버튼 */
 .scroll-down {
+  position: static;
   place-self: center;
   margin: 0 auto;
   display: inline-flex;
@@ -255,11 +257,14 @@ html[data-theme="light"] .intro__panel {
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
+  letter-spacing: 0;
+  --sd-scale: 1;
+  transform-origin: center center;
   cursor: pointer;
-  transform: translateZ(0);
+  transform: translateZ(0) scale(var(--sd-scale));
   backface-visibility: hidden;
-  will-change: opacity, transform;
-  transition: opacity 0.25s ease;
+  will-change: transform;
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease;
   contain: layout paint;
 }
 .scroll-down:hover {
@@ -267,11 +272,12 @@ html[data-theme="light"] .intro__panel {
 }
 .scroll-down .label {
   display: inline-block;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 1100;
 }
 .scroll-down .chev {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 26px;
   flex: 0 0 auto;
   display: block;
   animation: chev-bounce 1.6s ease-in-out infinite;
@@ -555,4 +561,105 @@ html[data-theme="light"] .footer {
 /* ===== 앵커 보정 ===== */
 section[id] {
   scroll-margin-top: 84px;
+}
+/* ===== HOTFIX: 버튼/소셜/타이포 강제 복구 ===== */
+
+/* 1) 기본 본문 글자 크기 복구 (브라우저/확장 영향 대비) */
+body {
+  font-size: 16px !important;
+}
+
+/* 2) 버튼 스타일 (누락/무효화 대비) */
+.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 44px !important;
+  padding: 0 16px !important;
+  border-radius: 12px !important;
+  background: var(--primary) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  box-shadow: var(--shadow) !important;
+  font-weight: 600 !important;
+}
+.btn--ghost {
+  background: transparent !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* 3) 소셜 아이콘 리스트 복구 (점 • 제거 + 가로 정렬) */
+.intro__social {
+  display: flex !important;
+  gap: 10px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 6px 0 0 !important;
+}
+.intro__social li {
+  list-style: none !important;
+}
+.intro__social a {
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--border) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  text-decoration: none !important;
+  font-size: 18px !important;
+  transition: transform 120ms ease, background 120ms ease !important;
+}
+.intro__social a:hover {
+  transform: translateY(-1px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+html[data-theme="light"] .intro__social a {
+  background: rgba(11, 22, 32, 0.04) !important;
+}
+html[data-theme="light"] .intro__social a:hover {
+  background: rgba(11, 22, 32, 0.08) !important;
+}
+
+/* 4) 히어로 내 타이포 크기 재정렬 */
+.intro__title {
+  font-size: clamp(38px, 7vw, 68px) !important;
+  line-height: 1.05 !important;
+}
+.intro__subtitle {
+  color: var(--text-2) !important;
+}
+.intro__panel {
+  text-align: center !important;
+}
+
+/* 5) 링크 기본 밑줄 제거(버튼/카드 링크 안전장치) */
+a.btn,
+.card__link {
+  text-decoration: none !important;
+}
+
+.about__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px; /* 이미지와 글 사이 간격 */
+  flex-wrap: wrap; /* 모바일에서는 줄바꿈 */
+}
+
+.about__img {
+  width: 180px; /* 원하는 크기 */
+  height: auto;
+  border-radius: 12px; /* 모서리 둥글게 */
+  object-fit: cover;
+  flex-shrink: 0; /* 줄어들지 않게 */
+}
+.about p {
+  line-height: 3; /* 기본은 1.4~1.6, 값이 클수록 세로 간격 넓어짐 */
 }
