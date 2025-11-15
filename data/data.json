@@ -27,7 +27,7 @@
     "category": "advertising",
     "format": "horizontal",
     "year": 2025,
-    "duration": "0:60",
+    "duration": "0:48",
     "thumbnail": "assets/images/lg-ad.png",
     "url": "https://youtu.be/mb8xeF7tC5Y",
     "tags": ["commercial", "brand", "contest"]
@@ -38,7 +38,7 @@
     "category": "advertising",
     "format": "horizontal",
     "year": 2025,
-    "duration": "0:60",
+    "duration": "2:20",
     "thumbnail": "assets/images/wedding.png",
     "url": "https://youtu.be/c1VA1iRUjXw",
     "tags": ["commercial", "brand", "contest"]
@@ -123,10 +123,10 @@
   },
   {
     "id": "junggu-shorts",
-    "title": "<중구를 담다, 중구를 잇(It)다> 쇼츠 영상",
+    "title": "<중구를 담다, 중구를 잇(It)다> - 쇼츠",
     "category": "advertising",
     "format": "vertical",
-    "year": 2024,
+    "year": 2025,
     "duration": "1:06",
     "thumbnail": "assets/images/daegu.jpeg",
     "url": "https://www.youtube.com/shorts/txOwxart5KU",
