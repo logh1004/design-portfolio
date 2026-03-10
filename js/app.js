@@ -276,5 +276,3 @@ scrollDown?.addEventListener("click", () => {
     block: "start",
   });
 });
-ㅇㅇ
-
