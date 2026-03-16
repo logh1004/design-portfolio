@@ -23,6 +23,61 @@
   },
   {
     "id": "lg-ad",
+    "title": "루트랩 기업 소개영상",
+    "category": "company",
+    "format": "horizontal",
+    "year": 2026,
+    "duration": "3:15",
+    "thumbnail": "assets/images/rootlab.jpg",
+    "url": "https://youtu.be/oZGQeFiWwOI",
+    "tags": ["commercial", "brand"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "PSD중공업 로우더 메뉴얼영상",
+    "category": "company",
+    "format": "horizontal",
+    "year": 2026,
+    "duration": "1:31",
+    "thumbnail": "assets/images/psd.jpg",
+    "url": "https://youtu.be/K3_TLQbQzAU",
+    "tags": ["commercial", "brand"]
+  },
+    {
+    "id": "lg-ad",
+    "title": "다원 기업 홍보영상",
+    "category": "company",
+    "format": "horizontal",
+    "year": 2026,
+    "duration": "2:17",
+    "thumbnail": "assets/images/dawin.jpg",
+    "url": "https://youtu.be/K3_TLQbQzAU",
+    "tags": ["commercial", "brand"]
+  },
+  {
+    "id": "lg-ad",
+    "title": "AI 자율제조실증사업 홍보영상",
+    "category": "company",
+    "format": "horizontal",
+    "year": 2026,
+    "duration": "4:20",
+    "thumbnail": "assets/images/kotmi.jpg",
+    "url": "https://youtu.be/hvD78BUnnJI",
+    "tags": ["commercial", "brand"]
+  },
+    {
+    "id": "lg-ad",
+    "title": "다원 막창 홍보 - 쇼츠",
+    "category": "company",
+    "format": "vertical",
+    "year": 2026,
+    "duration": "0:31",
+    "thumbnail": "assets/images/giral.jpg",
+    "url": "https://youtube.com/shorts/ZO5WpSrF0xo",
+    "tags": ["shorts", "vertical", "city"]
+  },
+  {
+    "id": "lg-ad",
     "title": "Life’s Gram (LG 광고)",
     "category": "advertising",
     "format": "horizontal",
