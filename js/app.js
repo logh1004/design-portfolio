@@ -276,3 +276,102 @@ scrollDown?.addEventListener("click", () => {
     block: "start",
   });
 });
+
+const preloader = document.getElementById("preloader");
+const preloaderFill = document.getElementById("preloaderFill");
+const preloaderPercent = document.getElementById("preloaderPercent");
+
+// ===== Fake preloader =====
+(function initPreloader() {
+  if (!preloader || !preloaderFill || !preloaderPercent) return;
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+  const easeInOutCubic = (t) =>
+    t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+function setProgress(value) {
+  const v = Math.max(0, Math.min(100, value));
+
+  let visual = v;
+
+  // 89% 전까지는 실제 fill을 살짝 덜 차게
+  if (v < 100) {
+    visual = v * 0.9; 
+  }
+
+  preloaderFill.style.clipPath = `inset(${100 - visual}% 0 0 0)`;
+  preloaderPercent.textContent = `${Math.round(v)}%`;
+}
+
+  function animateProgress(from, to, duration, easing) {
+    return new Promise((resolve) => {
+      const start = performance.now();
+
+      function frame(now) {
+        const elapsed = now - start;
+        const t = Math.min(elapsed / duration, 1);
+        const eased = easing(t);
+        const value = from + (to - from) * eased;
+
+        setProgress(value);
+
+        if (t < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          setProgress(to);
+          resolve();
+        }
+      }
+
+      requestAnimationFrame(frame);
+    });
+  }
+
+  async function run() {
+    setProgress(0);
+
+    // 0 -> 65 : 빠르게 오르다가 끝으로 갈수록 감속
+    await animateProgress(0, 64, 1450, easeOutCubic);
+
+    // 65에서 살짝 멈춤
+    await wait(10);
+
+    // 65 -> 89 : 다시 오르다가 끝으로 갈수록 감속
+    await animateProgress(64, 89, 1800, easeOutCubic);
+
+    // 89에서 오래 멈춤
+await wait(2100);
+
+// 마지막 한 번에 100
+await animateProgress(89, 100, 150, easeInOutCubic);
+
+// 100% 잠깐 유지
+await wait(180);
+
+// 블러 + 페이드아웃
+preloader.classList.add("preloader--done");
+
+await wait(750);
+preloader.remove();
+
+    // 100% 잠깐 유지
+    await wait(180);
+
+    // 블러 + 페이드아웃
+    preloader.classList.add("preloader--done");
+
+    // 전환 끝나면 DOM에서 제거
+    await wait(750);
+    preloader.remove();
+
+    
+  }
+
+  run();
+
+  
+})();

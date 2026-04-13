@@ -1,6 +1,6 @@
 /* ===== 디자인 토큰 (다크 기본) ===== */
 :root {
-  --bg: #0b1620;
+  --bg: #0a0a0a;
   --bg-2: #0e1b26;
   --card: #12202c;
   --text: #e8f0fb;
@@ -21,7 +21,7 @@ html[data-theme="light"] {
   --bg: #f6f9ff;
   --bg-2: #ffffff;
   --card: #ffffff;
-  --text: #0b1620;
+  --text: #0a0a0a;
   --text-2: #3b4b5e;
   --primary: #4b6cff;
   --chip: #eef3ff;
@@ -342,7 +342,7 @@ html[data-theme="light"] .intro__panel {
 }
 .filter-group {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 .chip {
@@ -676,6 +676,87 @@ a.btn,
   object-fit: cover;
   flex-shrink: 0; /* 줄어들지 않게 */
 }
+.about {
+  padding-top: 30px; /* about 섹션 상단 간격 늘림 */
+}
+.skills {
+  padding-top: 30px; /* skills 섹션 상단 간격 늘림 */
+}
+.highlights {
+  padding-top: 30px; /* highlights 섹션 상단 간격 늘림 */
+}
+.projects {
+  padding-top: 30px; /* projects 섹션 상단 간격 늘림 */
+}
+.projects h2 {
+  margin-bottom: 5px;
+}
 .about p {
   line-height: 3; /* 기본은 1.4~1.6, 값이 클수록 세로 간격 넓어짐 */
+}
+/* ===== Preloader ===== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 로고 영역 */
+.preloader__logo-wrap {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.preloader__logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 색 차오르는 영역 */
+.preloader__fill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+}
+
+/* 퍼센트 */
+.preloader__percent {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.preloader {
+  opacity: 1;
+  filter: blur(0);
+  visibility: visible;
+  transition:
+    opacity 0.7s ease,
+    filter 0.7s ease,
+    visibility 0.7s ease;
+}
+
+.preloader--done {
+  opacity: 0;
+  filter: blur(14px);
+  transition: opacity 0.7s ease, filter 0.7s ease, visibility 0.7s ease;
+  visibility: hidden;
+  pointer-events: none;
+  
 }
