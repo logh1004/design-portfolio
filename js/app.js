@@ -375,3 +375,19 @@ preloader.remove();
 
   
 })();
+
+// ===== Header background on scroll =====
+const siteHeader = document.querySelector(".site-header");
+
+function toggleHeaderBg() {
+  if (!siteHeader) return;
+
+  if (window.scrollY <= 5) {
+    siteHeader.classList.add("is-top");
+  } else {
+    siteHeader.classList.remove("is-top");
+  }
+}
+
+toggleHeaderBg();
+window.addEventListener("scroll", toggleHeaderBg);
