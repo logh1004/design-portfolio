@@ -1,3 +1,5 @@
+window.history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
 // ===== 인트로 영상 제어 =====
 const introVideo = document.getElementById("introVideo");
 const toggleMute = document.getElementById("toggleMute");
@@ -331,8 +333,12 @@ function setProgress(value) {
     });
   }
 
-  async function run() {
-    setProgress(0);
+async function run() {
+  document.body.classList.add("is-loading");
+  window.history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+
+  setProgress(0);
 
     // 0 -> 65 : 빠르게 오르다가 끝으로 갈수록 감속
     await animateProgress(0, 64, 1450, easeOutCubic);
@@ -355,23 +361,27 @@ await wait(180);
 // 블러 + 페이드아웃
 preloader.classList.add("preloader--done");
 
+if (introVideo) {
+  introVideo.pause();
+  introVideo.currentTime = 0;
+  introVideo.load();
+
+  await new Promise((resolve) => {
+    introVideo.addEventListener("loadeddata", resolve, { once: true });
+  });
+
+  introVideo.currentTime = 0;
+  introVideo.play().catch(() => {});
+}
+
 await wait(750);
 preloader.remove();
+document.body.classList.remove("is-loading");
+window.scrollTo(0, 0);
 
-    // 100% 잠깐 유지
-    await wait(180);
+} 
 
-    // 블러 + 페이드아웃
-    preloader.classList.add("preloader--done");
-
-    // 전환 끝나면 DOM에서 제거
-    await wait(750);
-    preloader.remove();
-
-    
-  }
-
-  run();
+run();
 
   
 })();
