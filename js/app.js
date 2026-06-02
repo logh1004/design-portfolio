@@ -378,7 +378,26 @@ await wait(750);
 preloader.remove();
 document.body.classList.remove("is-loading");
 window.scrollTo(0, 0);
+const introStack = document.querySelector(".intro__stack");
 
+setTimeout(() => {
+  introStack.classList.add("stack--show");
+}, 700);
+const worksBtn = document.querySelector(".intro__works-btn");
+const soundBtn = document.querySelector("#toggleMute");
+const scrollBtn = document.querySelector(".scroll-down");
+
+setTimeout(() => {
+  worksBtn?.classList.add("works--show");
+}, 5400);
+
+setTimeout(() => {
+  soundBtn?.classList.add("sound--show");
+}, 5700);
+
+setTimeout(() => {
+  scrollBtn?.classList.add("scroll--show");
+}, 6850);
 } 
 
 run();

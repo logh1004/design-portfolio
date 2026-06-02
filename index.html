@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>이선홍 | Portfolio</title>
+    <title>ee SeonHong — Creative Portfolio</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -28,17 +28,20 @@
     <header class="site-header" role="banner">
       <div class="container header-grid">
         <!-- Left: 브랜드 -->
-        <div class="brand">
-          <a href="#home" aria-label="홈으로 이동">PORTFOLIO</a>
-        </div>
+       <div class="brand">
+  <a href="#home" aria-label="홈으로 이동" class="brand__link">
+    <img src="assets/images/icon.svg" alt="" class="brand__icon" />
+    <span>ee SeonHong</span>
+  </a>
+</div>
 
         <!-- Center: 내비게이션 -->
         <nav class="nav" aria-label="주요 메뉴">
-          <a href="#home">Home</a>
-          <a href="#about">About Me</a>
-          <a href="#skills">Skills</a>
-          <a href="#highlights">Highlights</a>
-          <a href="#projects">Projects</a>
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT ME</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#highlights">HIGHLIGHTS</a>
+          <a href="#projects">WORKS</a>
         </nav>
 
         <!-- Right: 액션(테마 토글) -->
@@ -77,21 +80,12 @@
         <!-- 패널 + 스크롤 버튼을 한 부모로 묶음 -->
         <div class="intro__stack">
           <div class="intro__panel" role="group" aria-label="히어로 정보">
-            <div class="intro__badge">Portfolio</div>
-            <h1 class="intro__title">이선홍 <span class="thin"></span></h1>
-            <p class="intro__subtitle">
-              Music Video · Commercial · Motion Graphics · Web
-            </p>
 
-            <ul class="intro__social" aria-label="소셜 링크">
-              <li><a href="#" aria-label="Instagram(준비중)">📷</a></li>
-              <li><a href="#" aria-label="X(준비중)">🐦</a></li>
-              <li><a href="#" aria-label="YouTube(준비중)">▶️</a></li>
-              <li><a href="#" aria-label="Notion(준비중)">🗂️</a></li>
-              <li><a href="#" aria-label="GitHub(준비중)">💻</a></li>
-            </ul>
+<div class="intro__cta">
+  <a href="#projects" class="intro__works-btn">VIEW WORKS</a>
+</div>
 
-            <div class="intro__actions">
+            <div class="intro__actions intro__actions--reveal">
               <button
                 id="toggleMute"
                 class="btn btn--ghost"
@@ -140,16 +134,30 @@
 
     <!-- ===== 2) ABOUT ME ===== -->
     <section id="about" class="about container" aria-label="About Me">
-      <h2>About Me</h2>
+      <h2>ABOUT ME</h2>
       <div class="about__content">
+        <div class="about__media">
         <img
           src="assets/images/profile.png"
           alt="프로필 사진"
           class="about__img"
         />
+        <video
+      class="about__logo-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="assets/videos/L-motion.webm" type="video/webm" />
+    </video>
+
+  </div>
+
         <p class="about__text-vertical">
-          시각영상디자인 전공. 힙합 아티스트 ‘로흐’.<br />
-          음악과 영상·모션·브랜딩을 결합한 프로젝트를 만듭니다.<br />
+          이선홍 / 로흐 (힙합 아티스트) <br />
+          대구가톨릭대학교 시각영상디자인 졸업 <br />
+          음악과 영상 · 모션 · 브랜딩을 결합한 프로젝트를 만듭니다. <br />
           클라이언트 목적과 감정의 밸런스를 맞추는 것에 집중합니다.
         </p>
       </div>
@@ -157,7 +165,7 @@
 
     <!-- ===== 3) SKILLS ===== -->
     <section id="skills" class="skills container" aria-label="Skills">
-      <h2>Skills</h2>
+      <h2>SKILLS</h2>
       <div class="skills__grid">
         <div class="skill-card">
           <h3>Video / Motion</h3>
@@ -180,7 +188,7 @@
       class="highlights container"
       aria-label="Highlights"
     >
-      <h2>Highlights</h2>
+      <h2>HIGHLIGHTS</h2>
       <div class="timeline">
         <div class="tl-group">
           <h3>Education</h3>
@@ -219,7 +227,7 @@
 
     <!-- ===== 5) PROJECTS ===== -->
     <section id="projects" class="projects container" aria-label="Projects">
-      <h2>Projects</h2>
+      <h2>WORKS</h2>
 
       <!-- Controls -->
       <div class="controls">
