@@ -339,7 +339,7 @@ html[data-theme="light"] .intro__panel {
   gap: 16px;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 }
 .search input {
   width: 280px;
@@ -686,9 +686,9 @@ a.btn,
 }
 
 .about__img {
-  width: 180px; /* 원하는 크기 */
+  width: 220px; /* 원하는 크기 */
   height: auto;
-  border-radius: 12px; /* 모서리 둥글게 */
+  border-radius: 15px; /* 모서리 둥글게 */
   object-fit: cover;
 }
 .about {
@@ -926,4 +926,39 @@ body.is-loading footer {
   left: 830px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.works-feature {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 0 20px;
+  margin-left: calc(50% - 50vw);
+  border-radius: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.works-feature__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+#worksFeature {
+  scroll-margin-top: 0;
+}
+
+.site-header.is-feature {
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+.site-header.is-feature .nav a.is-active {
+  background: transparent;
+}
+.site-header.is-feature:hover {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  border-bottom-color: var(--border);
 }

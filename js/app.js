@@ -62,7 +62,13 @@ const setActive = () => {
     if (y >= s.offsetTop) current = s.id;
   }
   navLinks.forEach((a) => {
-    a.classList.toggle("is-active", a.getAttribute("href") === `#${current}`);
+    const href = a.getAttribute("href");
+
+    const isWorks =
+      current === "projects" &&
+      (href === "#projects" || href === "#worksFeature");
+
+    a.classList.toggle("is-active", href === `#${current}` || isWorks);
   });
 };
 setActive();
@@ -416,7 +422,34 @@ function toggleHeaderBg() {
   } else {
     siteHeader.classList.remove("is-top");
   }
+  const worksFeature = document.querySelector("#worksFeature");
+
+  if (worksFeature) {
+    const rect = worksFeature.getBoundingClientRect();
+
+    const isFeatureView = rect.top <= 80 && rect.bottom > 500;
+
+    if (isFeatureView) {
+      siteHeader.classList.add("is-feature");
+    } else {
+      siteHeader.classList.remove("is-feature");
+    }
+  }
 }
 
-toggleHeaderBg();
-window.addEventListener("scroll", toggleHeaderBg);
+const homeLogoBtn = document.getElementById("homeLogo");
+const mainIntroVideo = document.getElementById("introVideo");
+
+if (homeLogoBtn && mainIntroVideo) {
+  homeLogoBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+
+    mainIntroVideo.currentTime = 0;
+    mainIntroVideo.play().catch(() => {});
+  });
+}

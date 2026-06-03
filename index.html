@@ -29,7 +29,7 @@
       <div class="container header-grid">
         <!-- Left: 브랜드 -->
        <div class="brand">
-  <a href="#home" aria-label="홈으로 이동" class="brand__link">
+  <a href="#home" aria-label="홈으로 이동" class="brand__link" id="homeLogo">
     <img src="assets/images/icon.svg" alt="" class="brand__icon" />
     <span>ee SeonHong</span>
   </a>
@@ -41,7 +41,7 @@
           <a href="#about">ABOUT ME</a>
           <a href="#skills">SKILLS</a>
           <a href="#highlights">HIGHLIGHTS</a>
-          <a href="#projects">WORKS</a>
+          <a href="#worksFeature">WORKS</a>
         </nav>
 
         <!-- Right: 액션(테마 토글) -->
@@ -82,7 +82,7 @@
           <div class="intro__panel" role="group" aria-label="히어로 정보">
 
 <div class="intro__cta">
-  <a href="#projects" class="intro__works-btn">VIEW WORKS</a>
+  <a href="#worksFeature" class="intro__works-btn">VIEW WORKS</a>
 </div>
 
             <div class="intro__actions intro__actions--reveal">
@@ -226,9 +226,13 @@
     </section>
 
     <!-- ===== 5) PROJECTS ===== -->
-    <section id="projects" class="projects container" aria-label="Projects">
+      <section id="projects" class="projects container" aria-label="Projects">
       <h2>WORKS</h2>
-
+      <div id="worksFeature" class="works-feature">
+        <video class="works-feature__video" autoplay muted loop playsinline>
+          <source src="assets/videos/main.mp4" type="video/mp4" />
+        </video>
+      </div>
       <!-- Controls -->
       <div class="controls">
         <div class="search">
@@ -265,25 +269,6 @@
             <button class="chip" data-category="company" role="tab">
               Company
             </button>
-          </div>
-
-          <div class="filter-group" aria-label="보조 필터">
-            <label class="select-label">
-              <span>Format</span>
-              <select id="formatSelect">
-                <option value="all">All</option>
-                <option value="vertical">Vertical (9:16)</option>
-                <option value="horizontal">Horizontal (16:9)</option>
-                <option value="square">Square (1:1)</option>
-              </select>
-            </label>
-
-            <label class="select-label">
-              <span>Year</span>
-              <select id="yearSelect">
-                <option value="all">All</option>
-              </select>
-            </label>
           </div>
         </div>
       </div>
